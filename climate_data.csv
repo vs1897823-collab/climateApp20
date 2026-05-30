@@ -1,0 +1,7 @@
+date,location,metric,value
+2000-01-01,Global,temperature_anomaly,0.42
+2001-01-01,Global,temperature_anomaly,0.44
+2002-01-01,Global,temperature_anomaly,0.48
+2000-01-01,Global,co2_ppm,369.55
+2001-01-01,Global,co2_ppm,371.14
+2002-01-01,Global,co2_ppm,373.28

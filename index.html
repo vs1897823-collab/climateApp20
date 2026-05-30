@@ -1,0 +1,51 @@
+// public/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Climate DBMS Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌍 Climate Change DBMS</h1>
+  </header>
+  <main>
+    <section class="stats">
+      <h2>Statistics</h2>
+      <div id="stats"></div>
+    </section>
+    <section class="records">
+      <h2>Records</h2>
+      <button id="refreshBtn">Refresh</button>
+      <table id="recordsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Temp (°C)</th>
+            <th>CO₂ (ppm)</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <section class="add-record">
+      <h2>Add New Record</h2>
+      <form id="addForm">
+        <input type="date" name="date" required />
+        <input type="text" name="location" placeholder="Location" />
+        <input type="number" step="any" name="temperature" placeholder="Temperature" />
+        <input type="number" step="any" name="co2" placeholder="CO₂" />
+        <input type="text" name="description" placeholder="Description" />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

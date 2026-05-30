@@ -13,13 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     data.forEach(rec => {
       const row = document.createElement('tr');
       row.innerHTML = `
-        <td>${rec.id}</td>
-        <td>${rec.date}</td>
-        <td>${rec.location || ''}</td>
-        <td>${rec.temperature ?? ''}</td>
-        <td>${rec.co2 ?? ''}</td>
-        <td>${rec.description || ''}</td>
-      `;
+  <td>${rec.id}</td>
+  <td>${rec.date}</td>
+  <td>${rec.location || ''}</td>
+  <td>${rec.temperature ?? ''}</td>
+  <td>${rec.co2 ?? ''}</td>
+  <td>${rec.description || ''}</td>
+  <td>
+    <button onclick="deleteRecord(${rec.id})">
+      Delete
+    </button>
+  </td>
+`;   
       recordsTableBody.appendChild(row);
     });
   };
@@ -55,5 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initial load
+ window.deleteRecord = async function(id) {
+
+  if (!confirm('Delete this record?')) return;
+
+  await fetch(`/api/records/${id}`, {
+    method: 'DELETE'
+  });
+
+  refresh();
+};
   refresh();
 });

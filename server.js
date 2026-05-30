@@ -58,6 +58,17 @@ app.post('/api/records', (req, res) => {
   });
   stmt.finalize();
 });
+app.delete('/api/records/:id', (req, res) => {
+  const id = req.params.id;
+
+  db.run('DELETE FROM climate WHERE id = ?', [id], function(err) {
+    if (err) return res.status(500).json({ error: err.message });
+
+    res.json({
+      message: 'Record deleted successfully'
+    });
+  });
+});
 
 app.get('/api/stats', (req, res) => {
   const sql = `SELECT AVG(temperature) AS avgTemp, AVG(co2) AS avgCo2 FROM climate`;

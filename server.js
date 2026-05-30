@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
-const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'db', 'climate.db');
+const DB_PATH = path.join(__dirname,'climate.db');
 const db = new sqlite3.Database(DB_PATH, (err) => {
   if (err) {
     console.error('Failed to connect to DB', err);
